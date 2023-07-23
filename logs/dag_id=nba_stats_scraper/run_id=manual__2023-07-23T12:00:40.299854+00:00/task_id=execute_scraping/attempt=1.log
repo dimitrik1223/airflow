@@ -1,0 +1,28 @@
+[2023-07-23T14:01:22.739+0200] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: nba_stats_scraper.execute_scraping manual__2023-07-23T12:00:40.299854+00:00 [queued]>
+[2023-07-23T14:01:22.749+0200] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: nba_stats_scraper.execute_scraping manual__2023-07-23T12:00:40.299854+00:00 [queued]>
+[2023-07-23T14:01:22.750+0200] {taskinstance.py:1308} INFO - Starting attempt 1 of 1
+[2023-07-23T14:01:22.762+0200] {taskinstance.py:1327} INFO - Executing <Task(BashOperator): execute_scraping> on 2023-07-23 12:00:40.299854+00:00
+[2023-07-23T14:01:22.765+0200] {standard_task_runner.py:57} INFO - Started process 6762 to run task
+[2023-07-23T14:01:22.771+0200] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'nba_stats_scraper', 'execute_scraping', 'manual__2023-07-23T12:00:40.299854+00:00', '--job-id', '39', '--raw', '--subdir', 'DAGS_FOLDER/nba_stats_scrape_exec.py', '--cfg-path', '/var/folders/fc/9vrqth010qgbrhv1th35kb040000gn/T/tmp_p_16wtd']
+[2023-07-23T14:01:22.775+0200] {standard_task_runner.py:85} INFO - Job 39: Subtask execute_scraping
+[2023-07-23T14:01:22.837+0200] {task_command.py:410} INFO - Running <TaskInstance: nba_stats_scraper.execute_scraping manual__2023-07-23T12:00:40.299854+00:00 [running]> on host dimitris-mbp.home
+[2023-07-23T14:01:22.921+0200] {taskinstance.py:1545} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='nba_stats_scraper' AIRFLOW_CTX_TASK_ID='execute_scraping' AIRFLOW_CTX_EXECUTION_DATE='2023-07-23T12:00:40.299854+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2023-07-23T12:00:40.299854+00:00'
+[2023-07-23T14:01:22.923+0200] {subprocess.py:63} INFO - Tmp dir root location: /var/folders/fc/9vrqth010qgbrhv1th35kb040000gn/T
+[2023-07-23T14:01:22.925+0200] {subprocess.py:75} INFO - Running command: ['/bin/bash', '-c', 'python3 ~/desktop/nba_mvp_predictor/main.py']
+[2023-07-23T14:01:22.931+0200] {subprocess.py:86} INFO - Output:
+[2023-07-23T14:01:23.074+0200] {subprocess.py:93} INFO - Traceback (most recent call last):
+[2023-07-23T14:01:23.075+0200] {subprocess.py:93} INFO -   File "/Users/dimitrikestenbaum/desktop/nba_mvp_predictor/main.py", line 4, in <module>
+[2023-07-23T14:01:23.076+0200] {subprocess.py:93} INFO -     from nba_stats_scraping.nba_stats_scraper import Nba_stats_scraper
+[2023-07-23T14:01:23.077+0200] {subprocess.py:93} INFO -   File "/Users/dimitrikestenbaum/Desktop/nba_mvp_predictor/nba_stats_scraping/nba_stats_scraper.py", line 4, in <module>
+[2023-07-23T14:01:23.077+0200] {subprocess.py:93} INFO -     import pandas as pd
+[2023-07-23T14:01:23.078+0200] {subprocess.py:93} INFO - ModuleNotFoundError: No module named 'pandas'
+[2023-07-23T14:01:23.095+0200] {subprocess.py:97} INFO - Command exited with return code 1
+[2023-07-23T14:01:23.109+0200] {taskinstance.py:1824} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/Users/dimitrikestenbaum/.pyenv/versions/3.11.4/envs/pelven/lib/python3.11/site-packages/airflow/operators/bash.py", line 210, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2023-07-23T14:01:23.113+0200] {taskinstance.py:1345} INFO - Marking task as FAILED. dag_id=nba_stats_scraper, task_id=execute_scraping, execution_date=20230723T120040, start_date=20230723T120122, end_date=20230723T120123
+[2023-07-23T14:01:23.130+0200] {standard_task_runner.py:104} ERROR - Failed to execute job 39 for task execute_scraping (Bash command failed. The command returned a non-zero exit code 1.; 6762)
+[2023-07-23T14:01:23.151+0200] {local_task_job_runner.py:225} INFO - Task exited with return code 1
+[2023-07-23T14:01:23.175+0200] {taskinstance.py:2653} INFO - 0 downstream tasks scheduled from follow-on schedule check
