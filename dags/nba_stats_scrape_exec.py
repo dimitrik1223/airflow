@@ -1,4 +1,3 @@
-import os
 import logging
 from datetime import datetime
 from airflow import DAG
@@ -9,7 +8,7 @@ logger = logging.getLogger("airflow.task")
 with DAG(
 	dag_id="nba_stats_scraper",
 	start_date=datetime(2022, 7, 23),
-	schedule=None,
+	schedule="0 8 * * *",
 	max_active_runs=1
 ) as dag:
 	task = BashOperator(
